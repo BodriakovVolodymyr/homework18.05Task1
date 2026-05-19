@@ -77,4 +77,9 @@ public:
 		}
 		cout << endl;
 	}
+
+	void clear()
+	{
+		size = 0;
+	}
 };

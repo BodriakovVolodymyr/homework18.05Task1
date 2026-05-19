@@ -11,7 +11,7 @@ public:
 	void visit(const string& url)
 	{
 		back_page.push(url);
-		forward_page.pop();
+		forward_page.clear();
 
 		cout << "Visit: " << url << endl;
 	}

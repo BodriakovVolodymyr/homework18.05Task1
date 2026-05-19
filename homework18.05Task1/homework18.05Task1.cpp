@@ -12,7 +12,13 @@ int main()
 	browser.visit("uk.wikipedia.org/random_article");
 	browser.visit("uk.wikipedia.org/wiki/Columbia_University_School_of_the_Arts");
 
-	//browser.showHistory();
+	cout << endl;
+	browser.showHistory();
 
+	browser.back();
+	browser.back();
+	browser.showHistory();
 	
+	browser.forward();
+	browser.showHistory();
 }
