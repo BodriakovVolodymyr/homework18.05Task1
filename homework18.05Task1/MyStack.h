@@ -8,11 +8,26 @@ class MyStack {
 private:
 	T* arr;
 	int size;
+	int capacity;
+	void resize()
+	{
+		capacity *= 2;
 
+		T* temp = new T[capacity];
+
+		for (int i = 0; i < size; i++)
+		{
+			temp[i] = arr[i];
+		}
+
+		delete[] arr;
+		arr = temp;
+	}
 public:
-	MyStack() {
-		arr = nullptr;
-		size = 0;
+	MyStack(int capacity = 10) {
+		this->capacity = capacity;
+		this->size = 0;
+		arr = new T[capacity];
 	}
 	~MyStack() {
 		delete[]arr;
@@ -24,35 +39,29 @@ public:
 
 	T top()const {
 		if (isEmpty()) {
-			throw out_of_range("Stack if empty");
+			throw out_of_range("Stack is empty");
 		}
 		return arr[size - 1];
 	}
 
 	void push(const T& value) {
-		T* temp = new T[size + 1];
-		for (int i = 0; i < size; i++) {
-			temp[i] = arr[i];
+		if (size >= capacity)
+		{
+			resize();
 		}
-		temp[size] = value;
-		delete[]arr;
-		arr = temp;
+
+		arr[size] = value;
 		size++;
 	}
 
 
 	void pop() {
-		if (isEmpty()) {
-			cout << "Stack is empty" << endl;
+		if (isEmpty())
+		{
+			cout << "Stack is empty\n";
 			return;
 		}
-		T* temp = new T[size - 1];
 
-		for (int i = 0; i < size - 1; i++) {
-			temp[i] = arr[i];
-		}
-		delete[]arr;
-		arr = temp;
 		size--;
 	}
 

@@ -5,14 +5,14 @@
 
 int main()
 {
-	MyStack<string> st;
-	st.push("Google.com");
-	st.push("Google/search?q=wikipedia");
-	st.push("uk.wikipedia.org");
-	st.push("uk.wikipedia.org/random_article");
-	st.push("uk.wikipedia.org/wiki/Columbia_University_School_of_the_Arts");
+	WebBrowser browser;
+	browser.visit("Google.com");
+	browser.visit("Google/search?q=wikipedia");
+	browser.visit("uk.wikipedia.org");
+	browser.visit("uk.wikipedia.org/random_article");
+	browser.visit("uk.wikipedia.org/wiki/Columbia_University_School_of_the_Arts");
 
-	st.show();
+	//browser.showHistory();
 
 	
 }

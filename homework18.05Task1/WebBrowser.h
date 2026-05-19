@@ -19,16 +19,18 @@ public:
 	string back() {
 		if(back_page.isEmpty())
 		{
-			cout << "History is empty";
+			return "History is empty";
 		}
 		string current = back_page.top();
 		back_page.pop();
-		forward_page.push(current);
+		
 
 		if (back_page.isEmpty())
 		{
+			back_page.push(current);
 			return "No previous page";
 		}
+		forward_page.push(current);
 		return back_page.top();
 	}
 
