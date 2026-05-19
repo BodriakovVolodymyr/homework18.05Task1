@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include <stdexcept>
 using namespace std;
 
 template<typename T>
@@ -44,8 +45,8 @@ public:
 		if (isEmpty()) {
 			cout << "Stack is empty" << endl;
 			return;
-	}
-		T* temp = new[size - 1];
+		}
+		T* temp = new T[size - 1];
 
 		for (int i = 0; i < size - 1; i++) {
 			temp[i] = arr[i];
@@ -60,9 +61,10 @@ public:
 			cout << "Stack is empty" << endl;
 			return;
 		}
-		cout << "Stack: ";
+		cout << "Stack: " << endl;
 		for (int i = size - 1; i >= 0; i--) {
-			cout << arr[i] << " ";
+			cout <<'~' << arr[i] << " ";
+			cout << endl;
 		}
 		cout << endl;
 	}
